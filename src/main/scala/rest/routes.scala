@@ -14,10 +14,12 @@ trait RestRoutes extends HttpService{
   
   val route : Route = pathPrefix("example"){
    get{ 
-     val presentTime : DateTime = DateTime.now(DateTimeZone.UTC)
-     complete(response(presentTime))
+     complete {
+       val presentTime : DateTime = DateTime.now(DateTimeZone.UTC)
+       response(presentTime)
+     }
    } ~ post {
-     complete("Your Request is Received")
+     complete("Hi - Your Request is Received")
    }
   }
 }
